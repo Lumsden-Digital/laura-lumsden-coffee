@@ -1,65 +1,31 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Container, CardImgProps, Card } from 'react-bootstrap'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>N.W.Twyford</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Container>
+        <Card className="m-5 p-4">  
+          <Card.Title className="text-center mb-4">Nick Twyford</Card.Title>
+          <Card.Text>Welcome to my website, which is really a blog posing as a website. (Don’t tell anyone.)
+            This site will be the home of All Worlds Unseen, my fantasy series, as well as anything else I put together while not writing Aurora Card stories.
+          </Card.Text>
+          <Card.Text>
+            As we go, I’ll be putting up short stories, links to novels, and any artwork or films that also come about.
+            If you like any of it, tell me, tell your friends, or if you don’t have any friends, tell the internet. It’s always listening.
+          </Card.Text>
+          <Card.Text><strong>About me</strong> (in the third person for reasons I’m not really sure of)</Card.Text>
+          <Card.Text>A lifelong fan of film and television, Nick studied Film at Brunel University, received a Masters in Screenwriting at Westminster University, and has worked for the BBC for the last ten years.
+            He writes whenever he can (which is quite a lot of the time) and has self published 2 volumes of his young adult fantasy series, All Worlds Unseen, under the titles Aurora and Avalonne. He has also released a sci-fi novel, Space Suits and a comic, Norm’s Attempt.
+            He has been lucky enough to have had 2 short stories published as part of the Twisted50 series and will happily submit stories to them until they finally see him for the fraud he is.</Card.Text>          
+        </Card>
+      </Container>
     </div>
   )
 }
