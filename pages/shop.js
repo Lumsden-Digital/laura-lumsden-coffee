@@ -1,16 +1,35 @@
 import React from 'react'
 import { Container, CardImgProps, Card } from 'react-bootstrap'
 
-export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:3000/api/books')
-    const data = await res.json()
+// export const getStaticProps = async () => {
+//     const res = await fetch('http://localhost:3000/api/books')
+//     const data = await res.json()
 
-    return {
-        props: {books: data}
-    }
-}
+//     return {
+//         props: {books: data}
+//     }
+// }
 
-const Shop = ({ books }) => {
+const Shop = () => {
+
+    const books = [
+        {
+            title: "All Worlds Unseen vol 1: Aurora"
+        },
+        {
+            title: "All Worlds Unseen vol 2: Avalonne"
+        },
+        {
+            title: "Mean Tales and Other Lives"
+        },
+        {
+            title: "Norm’s Attempt"
+        },
+        {
+            title: "Twisted 50"
+        }
+    ]
+
     return (
         <Container className='grid'>
             {books.map(book => {    
