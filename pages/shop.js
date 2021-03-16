@@ -1,15 +1,6 @@
 import React from 'react'
 import { Container, CardImgProps, Card } from 'react-bootstrap'
 
-// export const getStaticProps = async () => {
-//     const res = await fetch('http://localhost:3000/api/books')
-//     const data = await res.json()
-
-//     return {
-//         props: {books: data}
-//     }
-// }
-
 const Shop = () => {
 
     const books = [
