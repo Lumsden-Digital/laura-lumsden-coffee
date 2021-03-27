@@ -1,7 +1,6 @@
 import React from 'react'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Link from 'next/link'
-import styles from '../styles/Header.module.css'
 
 const Header = () => {
 
@@ -12,6 +11,7 @@ const Header = () => {
     const brand = {
         backgroundColor: '#3e3e3e',
         color: 'white',
+        fontSize: '1.5rem',
         height: '80%',
         width: '15rem',
         textAlign: 'center',
@@ -25,7 +25,7 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg="light" expand="lg" collapseOnSelect style={navbar}>
+            <Navbar bg="light" expand="lg" collapseOnSelect className="py-4">
                 <Link href='/' passHref><Navbar.Brand style={brand}>N.W.Twyford</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
