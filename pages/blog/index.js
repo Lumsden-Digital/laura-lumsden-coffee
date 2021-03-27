@@ -20,7 +20,8 @@ const Blogs = ({ posts }) => {
     // {<div onClick={() => router.push(`/blog/${post.slug.current}`)}>{post.title}</div>}
 
     return (
-        <Container className="my-5">        
+        <Container>             
+            <h3 className="section-header my-4">Blog</h3>       
             {orderedPosts.map((post) => {
                 const postDateTime = new Date(post.publishedAt);
                 const postDate = (postDateTime.toDateString())
