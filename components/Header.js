@@ -25,18 +25,19 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg="light" expand="md" collapseOnSelect style={navbar}>
+            <Navbar bg="light" expand="lg" collapseOnSelect style={navbar}>
                 <Link href='/' passHref><Navbar.Brand style={brand}>N.W.Twyford</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Link href='/' passHref><Nav.Link style={navlink}>Home</Nav.Link></Link>
                         <Link href='/blog' passHref><Nav.Link style={navlink}>Blog</Nav.Link></Link>
+                        <Link href='/contact' passHref><Nav.Link style={navlink}>Contact</Nav.Link></Link>
                         <Link href='/norms-attempt' passHref><Nav.Link style={navlink}>Norm's Attempt</Nav.Link></Link>
                         <Link href='/shop' passHref><Nav.Link style={navlink}>Shop</Nav.Link></Link>
                     </Nav>                    
                 </Navbar.Collapse>
-            </Navbar>
+            </Navbar>            
         </>
 
     )
