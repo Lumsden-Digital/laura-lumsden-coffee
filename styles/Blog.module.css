@@ -1,8 +1,18 @@
 .card {
   margin: 1rem;
   padding: 0.5rem;
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: #f8f9fa;
 }
 
 .card:hover {
   cursor: pointer;
+}
+
+@media only screen and (min-width: 576px) {
+  .link {
+    display: flex;
+    justify-content: space-between;
+  }
 }

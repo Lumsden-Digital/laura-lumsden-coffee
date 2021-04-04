@@ -4,6 +4,12 @@ import Header from './Header'
 
 
 const Layout = (props) => {
+
+    // const layoutStyle = {
+    //     display: "flex",
+    //     flexDirection: "column"
+    // }
+
     return (
         <div>
             <Header />

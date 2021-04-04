@@ -20,22 +20,26 @@ const Blogs = ({ posts }) => {
     // {<div onClick={() => router.push(`/blog/${post.slug.current}`)}>{post.title}</div>}
 
     return (
-        <Container>             
-            <h3 className="section-header my-4">Blog</h3>       
+        <Container>
+
+            <h3 className="section-header my-4">Blog</h3>
+
             {orderedPosts.map((post) => {
                 const postDateTime = new Date(post.publishedAt);
                 const postDate = (postDateTime.toDateString())
                 const link = `/blog/${post.slug}`
 
                 return (
-                    <Card className={styles.card}>
+                    <div className={styles.card}>
                         <Link href={`/blog/${post.slug.current}`} passHref>
-                            <div>
-                                <h5>{post.title}</h5>
+                            <div className={styles.link}>
+                                <div>
+                                    <h5>{post.title}</h5>
+                                </div>
                                 <span>{postDate}</span>
                             </div>
                         </Link>
-                    </Card>
+                    </div>
                     
                 )
             })}
