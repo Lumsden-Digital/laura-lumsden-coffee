@@ -36,13 +36,21 @@ export const getServerSideProps = async pageContext => {
 }
 
 const Post = ({ title, body }) => {
-    console.log(body[0].children[0].text)
+    // console.log(body[0].children[0].text)
     // console.log(body.map(part => part.children[0].text))
+    console.log(body)
     return (
         <Container className='p-5'>
             <Link href='/blog' passHref><h6 className='btn'>back</h6></Link>            
             <h3 className='section-header py-4'>{title}</h3>
-            {body.map(part => <p>{part.children[0].text}</p>)}
+            {/* {body.map(part => <p>{part.children[0].text}</p>)} */}
+            {body.map(part => {
+                if (part._type == 'image') {
+                    return <p>[image]</p>
+                }
+
+                return <p>{part.children[0].text}</p>
+            })}
             <Link href='/blog' passHref><h6 className='btn mt-4'>back</h6></Link>            
         </Container> 
         
