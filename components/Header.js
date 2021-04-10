@@ -17,6 +17,8 @@ const Header = () => {
         width: '15rem',
         textAlign: 'center',
         borderRadius: '3px',
+        marginBottom: '.8rem',
+        marginTop: '.8rem',
         // paddingTop: '1rem'
     }
 
@@ -26,19 +28,19 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg="light" expand="lg" collapseOnSelect className="py-4">
-                <Link href='/' passHref><Navbar.Brand style={brand} className={HeaderStyles.brand}>N.W.Twyford</Navbar.Brand></Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className={HeaderStyles.toggle}/>
+            <Navbar bg="light" expand="lg" collapseOnSelect className="py-4 nav-bar">
+                <Link href='/' passHref><Navbar.Brand style={brand}>N.W.Twyford</Navbar.Brand></Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Link href='/' passHref><Nav.Link style={navlink}>Home</Nav.Link></Link>
                         <Link href='/blog' passHref><Nav.Link style={navlink}>Blog</Nav.Link></Link>
                         <Link href='/contact' passHref><Nav.Link style={navlink}>Contact</Nav.Link></Link>
                         <Link href='/norms-attempt' passHref><Nav.Link style={navlink}>Norm's Attempt</Nav.Link></Link>
-                        <Link href='/shop' passHref><Nav.Link style={navlink}>Shop</Nav.Link></Link>
+                        <Link href='/shop' passHref><Nav.Link style={navlink}>Shop</Nav.Link></Link>                        
                     </Nav>                    
                 </Navbar.Collapse>
-            </Navbar>            
+            </Navbar>
         </>
 
     )
