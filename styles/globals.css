@@ -51,3 +51,8 @@ p {
   padding: 1rem;
   background-color: #f8f9fa;
 }
+
+.btn {
+  background-color: #f8f9fa !important;
+  border-radius: 1rem;
+}

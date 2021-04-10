@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Link from 'next/link'
+import HeaderStyles from '../styles/Header.module.css'
 
 const Header = () => {
 
@@ -26,8 +27,8 @@ const Header = () => {
     return (
         <>
             <Navbar bg="light" expand="lg" collapseOnSelect className="py-4">
-                <Link href='/' passHref><Navbar.Brand style={brand}>N.W.Twyford</Navbar.Brand></Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Link href='/' passHref><Navbar.Brand style={brand} className={HeaderStyles.brand}>N.W.Twyford</Navbar.Brand></Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" className={HeaderStyles.toggle}/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Link href='/' passHref><Nav.Link style={navlink}>Home</Nav.Link></Link>

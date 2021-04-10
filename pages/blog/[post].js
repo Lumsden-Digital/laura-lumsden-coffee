@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
+import Link from 'next/link'
 
 // *[_type == 'post' && title == 'The Recessionists' ] | order(publishedAt desc) {
 //     body
@@ -39,11 +40,12 @@ const Post = ({ title, body }) => {
     // console.log(body.map(part => part.children[0].text))
     return (
         <Container className='p-5'>
-            <Card className='p-5'>
-                <Card.Title>{title}</Card.Title>
-                {body.map(part => <Card.Text>{part.children[0].text}</Card.Text>)}
-            </Card>
-        </Container>
+            <Link href='/blog' passHref><h6 className='btn'>back</h6></Link>            
+            <h3 className='section-header py-4'>{title}</h3>
+            {body.map(part => <p>{part.children[0].text}</p>)}
+            <Link href='/blog' passHref><h6 className='btn mt-4'>back</h6></Link>            
+        </Container> 
+        
     )
 }
 
