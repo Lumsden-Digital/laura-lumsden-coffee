@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import FormImpl from 'react-bootstrap/esm/Form'
 import styles from '../styles/Home.module.css'  
 import { Container } from 'react-bootstrap'
 
