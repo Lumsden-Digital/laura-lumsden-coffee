@@ -14,8 +14,8 @@ const Blogs = ({ posts }) => {
         return a.publishedAt - b.publishedAt
     })
 
-    console.log(posts)
-    console.log(orderedPosts)
+    // console.log(posts)
+    // console.log(orderedPosts)
 
     // {<div onClick={() => router.push(`/blog/${post.slug.current}`)}>{post.title}</div>}
 
@@ -39,8 +39,7 @@ const Blogs = ({ posts }) => {
                                 <span>{postDate}</span>
                             </div>
                         </Link>
-                    </div>
-                    
+                    </div>                   
                 )
             })}
         </Container>
