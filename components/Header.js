@@ -35,9 +35,10 @@ const Header = () => {
                     <Nav className="ml-auto">
                         <Link href='/' passHref><Nav.Link style={navlink}>Home</Nav.Link></Link>
                         <Link href='/blog' passHref><Nav.Link style={navlink}>Blog</Nav.Link></Link>
-                        <Link href='/contact' passHref><Nav.Link style={navlink}>Contact</Nav.Link></Link>
+                        <Link href='/gallery' passHref><Nav.Link style={navlink}>Gallery</Nav.Link></Link>
                         <Link href='/norms-attempt' passHref><Nav.Link style={navlink}>Norm's Attempt</Nav.Link></Link>
                         <Link href='/shop' passHref><Nav.Link style={navlink}>Shop</Nav.Link></Link>                        
+                        <Link href='/contact' passHref><Nav.Link style={navlink}>Contact</Nav.Link></Link>
                     </Nav>                    
                 </Navbar.Collapse>
             </Navbar>
