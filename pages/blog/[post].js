@@ -25,7 +25,7 @@ export const getServerSideProps = async pageContext => {
     const result = await fetch(url).then(res => res.json())
     const post = result.result[0]
 
-    const imageArrayProp = post.body.map((part, i) => (part._type == 'image' ? part.asset._ref : 'image'))
+    const imageArrayProp = post.body.map((part, i) => (part._type == 'image' ? part.asset._ref : 'text'))
 
     if(!post) {
         return {
@@ -47,18 +47,21 @@ const Post = ({ title, body, url, imageArrayProp }) => {
 
     const [imageUrl, setImageUrl] = useState('')
     const [imageArray, setImageArray] = useState(imageArrayProp)
+    const [newImageArray, setNewImageArray] = useState([])
     const [testImage, setTestImage] = useState('')
 
-    const foo = 'image-12acf3343ed0abd9af0099bc0da510b1a1477bca-605x907-jpg'
+    
 
-    useEffect(() => {   
+    const imageBuilder = imageUrlBuilder({
+        projectId: '5n04ir7t',
+        dataset: 'production'
+    })
 
-        const imageBuilder = imageUrlBuilder({
-            projectId: '5n04ir7t',
-            dataset: 'production'
-        })
-        
+
+    useEffect(() => { 
+        const foo = 'image-12acf3343ed0abd9af0099bc0da510b1a1477bca-605x907-jpg'
         setImageUrl(imageBuilder.image(foo))
+
 
         // body.map((part, i) => {
         //     if (part._type == 'image') {
@@ -75,10 +78,14 @@ const Post = ({ title, body, url, imageArrayProp }) => {
         // })
 
         // setImageArray(images)
-
-        console.log(imageArray)
-
     },[])
+
+    useEffect(() => {
+        const images = imageArray.map(i => (
+            i !== "text" ? imageBuilder.image(i) : i
+        ))
+        setNewImageArray(images)
+    }, [])
 
     // console.log(body[0].children[0].text)
     // console.log(body.map(part => part.children[0].text))
@@ -93,26 +100,21 @@ const Post = ({ title, body, url, imageArrayProp }) => {
             {body.map((part, i) => {
                 if (part._type == 'image') {
                     return (
-                        // <Image 
-                        //     src={part.asset._ref}
-                        //     width={500}
-                        //     height={500}
-                        // />
-                        <>
+                        <div key={part._key}>
                             <img 
                                 // src={part.asset._ref}
-                                src={imageUrl}
+                                src={newImageArray[i]}
                                 // width={500}
                                 // height={500}
                             />
                             {/* <p>{imageArray[i]}</p> */}
-                        </>
+                        </div>
                         
                     )
                 }
 
                 return (
-                    <div>
+                    <div key={part._key}>
                         {/* {imageUrl && <img src={imageUrl}/>} */}
                         <p>{part.children[0].text}</p>                        
                     </div>
