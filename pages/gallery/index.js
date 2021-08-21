@@ -14,7 +14,9 @@ const Gallery = () => {
             </Head>
             <Container>  
                 <h3 className="section-header my-4">Gallery</h3>
-                <p>Some sort of paragraph here to say how great your <a href={instaUrl} target='_blank'>Instagram page</a> is and why people should defo look at it.</p>            
+                <p>Some sort of paragraph here to say how great your <a href={instaUrl} target='_blank'>Instagram page</a> is and why people should defo look at it.</p>
+                <p>We could either hook up this page to Instagram itself to display a, perhaps random selection, or we could connect it to the CMS so you can select them yourself and change them round whenever.</p>            
+                <p>Otherwise we could keep it really simple and just have this as an entry point to your Insta page.</p>
             </Container>
         </div>
     )
