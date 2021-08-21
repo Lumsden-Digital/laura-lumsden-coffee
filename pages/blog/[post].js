@@ -45,71 +45,34 @@ export const getServerSideProps = async pageContext => {
 
 const Post = ({ title, body, url, imageArrayProp }) => {
 
-    const [imageUrl, setImageUrl] = useState('')
     const [imageArray, setImageArray] = useState(imageArrayProp)
-    const [newImageArray, setNewImageArray] = useState([])
-    const [testImage, setTestImage] = useState('')
-
-    
+    const [builtImagesArray, setBuiltImagesArray] = useState([])
 
     const imageBuilder = imageUrlBuilder({
         projectId: '5n04ir7t',
         dataset: 'production'
     })
 
-
-    useEffect(() => { 
-        const foo = 'image-12acf3343ed0abd9af0099bc0da510b1a1477bca-605x907-jpg'
-        setImageUrl(imageBuilder.image(foo))
-
-
-        // body.map((part, i) => {
-        //     if (part._type == 'image') {
-        //         setImageArray(imageBuilder.image(part.asset._ref))
-        //     }
-        // })
-
-        // let images = []
-        // body.forEach((part, i) => {
-        //     if (part._type == 'image') {
-        //         images.push(imageBuilder.image(part.asset._ref))
-        //     }
-        //     images.push('text')
-        // })
-
-        // setImageArray(images)
-    },[])
-
     useEffect(() => {
         const images = imageArray.map(i => (
             i !== "text" ? imageBuilder.image(i) : i
         ))
-        setNewImageArray(images)
-    }, [])
-
-    // console.log(body[0].children[0].text)
-    // console.log(body.map(part => part.children[0].text))
-    // console.log(body[9].asset._ref)
-    // console.log(body)
+        setBuiltImagesArray(images)
+    }, [])    
 
     return (
         <Container className='p-5'>
             <Link href='/blog' passHref><h6 className='btn'>back</h6></Link>            
             <h3 className='section-header py-4'>{title}</h3>
-            {/* {body.map(part => <p>{part.children[0].text}</p>)} */}
+
             {body.map((part, i) => {
                 if (part._type == 'image') {
                     return (
                         <div key={part._key}>
                             <img 
-                                // src={part.asset._ref}
-                                src={newImageArray[i]}
-                                // width={500}
-                                // height={500}
+                                src={builtImagesArray[i]}
                             />
-                            {/* <p>{imageArray[i]}</p> */}
-                        </div>
-                        
+                        </div>                        
                     )
                 }
 
@@ -121,11 +84,11 @@ const Post = ({ title, body, url, imageArrayProp }) => {
                 )
 
             })}
+            
             <Link href='/blog' passHref><h6 className='btn mt-4'>back</h6></Link>            
         </Container> 
         
     )
 }
-
 
 export default Post

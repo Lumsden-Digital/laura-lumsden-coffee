@@ -30,7 +30,7 @@ const Blogs = ({ posts }) => {
                 const link = `/blog/${post.slug}`
 
                 return (
-                    <div className={styles.card}>
+                    <div className={styles.card} key={`${post.title}, ${post.publishedAt}`}>
                         <Link href={`/blog/${post.slug.current}`} passHref>
                             <div className={styles.link}>
                                 <div>
