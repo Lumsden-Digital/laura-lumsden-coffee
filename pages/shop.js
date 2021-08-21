@@ -1,7 +1,10 @@
 import React from 'react'
-import { Container, CardImgProps, Card } from 'react-bootstrap'
+import Head from 'next/head'
+import { Container } from 'react-bootstrap'
 
 const Shop = () => {
+
+    const authorPage = 'https://www.amazon.co.uk/N-W-Twyford/e/B07HZ11ZWC?ref=sr_ntt_srch_lnk_3&qid=1621795620&sr=8-3'
 
     const books = [
         {
@@ -22,16 +25,16 @@ const Shop = () => {
     ]
 
     return (
-        <Container className='grid'>
-            {books.map(book => {    
-                return (
-                    <Card className="m-5 p-4">  
-                        <Card.Title className="text-center">{book.title}</Card.Title>
-                        <Card.Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl. Fermentum posuere urna nec tincidunt praesent semper feugiat. Nibh tellus molestie nunc non blandit massa enim nec dui. Sit amet mauris commodo quis. Tristique senectus et netus et malesuada fames ac. Faucibus et molestie ac feugiat sed. Viverra nibh cras pulvinar mattis nunc. Vel facilisis volutpat est velit egestas dui id. Metus aliquam eleifend mi in nulla posuere. Ornare suspendisse sed nisi lacus. Nisi est sit amet facilisis magna etiam. At urna condimentum mattis pellentesque. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Elementum curabitur vitae nunc sed velit dignissim sodales ut eu. Nunc scelerisque viverra mauris in aliquam sem fringilla. Ut sem viverra aliquet eget sit amet tellus. Aliquet enim tortor at auctor urna. Ac tortor dignissim convallis aenean et.</Card.Text>          
-                    </Card>
-                )
-            })}
-      </Container>
+        <div>
+            <Head>
+                <title>Shop</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            <Container>  
+                <h3 className="section-header my-4">Shop</h3>
+                <p>Check out my <a href={authorPage}>Amazon author page</a> for my published work.</p>            
+            </Container>
+        </div>
       
     )
 }
