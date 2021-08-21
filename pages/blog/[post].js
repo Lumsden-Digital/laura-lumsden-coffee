@@ -25,6 +25,8 @@ export const getServerSideProps = async pageContext => {
     const result = await fetch(url).then(res => res.json())
     const post = result.result[0]
 
+    const imageArrayProp = post.body.map((part, i) => (part._type == 'image' ? part.asset._ref : 'image'))
+
     if(!post) {
         return {
             notFound: true
@@ -34,24 +36,28 @@ export const getServerSideProps = async pageContext => {
             props: {
                 title: post.title,
                 body: post.body,
-                url: url
+                url: url,
+                imageArrayProp
             }
         }
     }
 }
 
-const Post = ({ title, body, url }) => {
+const Post = ({ title, body, url, imageArrayProp }) => {
 
     const [imageUrl, setImageUrl] = useState('')
-    const [imageArray, setImageArray] = useState('')
+    const [imageArray, setImageArray] = useState(imageArrayProp)
+    const [testImage, setTestImage] = useState('')
 
-    const foo = 'image-dc1550489483e3c151852f4f59bba7a5802fc09b-605x907-jpg'
+    const foo = 'image-12acf3343ed0abd9af0099bc0da510b1a1477bca-605x907-jpg'
 
-    useEffect(() => {        
+    useEffect(() => {   
+
         const imageBuilder = imageUrlBuilder({
             projectId: '5n04ir7t',
             dataset: 'production'
         })
+        
         setImageUrl(imageBuilder.image(foo))
 
         // body.map((part, i) => {
@@ -60,26 +66,24 @@ const Post = ({ title, body, url }) => {
         //     }
         // })
 
-        let images = []
-        body.forEach((part, i) => {
-            if (part._type == 'image') {
-                images.push(imageBuilder.image(part.asset._ref))
-            }
-            images.push('text')
-        })
+        // let images = []
+        // body.forEach((part, i) => {
+        //     if (part._type == 'image') {
+        //         images.push(imageBuilder.image(part.asset._ref))
+        //     }
+        //     images.push('text')
+        // })
 
-        setImageArray(images)
-        setTimeout(() => {
-            console.log(imageArray)
-        }, 1000);
+        // setImageArray(images)
+
+        console.log(imageArray)
 
     },[])
+
     // console.log(body[0].children[0].text)
     // console.log(body.map(part => part.children[0].text))
     // console.log(body[9].asset._ref)
     // console.log(body)
-
-    console.log(imageArray)
 
     return (
         <Container className='p-5'>
@@ -95,13 +99,13 @@ const Post = ({ title, body, url }) => {
                         //     height={500}
                         // />
                         <>
-                            <Image 
+                            <img 
                                 // src={part.asset._ref}
-                                src={"/image-dc1550489483e3c151852f4f59bba7a5802fc09b-605x907-jpg"}
-                                width={500}
-                                height={500}
+                                src={imageUrl}
+                                // width={500}
+                                // height={500}
                             />
-                            <p>Image</p>
+                            {/* <p>{imageArray[i]}</p> */}
                         </>
                         
                     )
