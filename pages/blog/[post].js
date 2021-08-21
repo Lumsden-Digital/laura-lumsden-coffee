@@ -63,12 +63,15 @@ const Post = ({ title, body, url }) => {
         let images = []
         body.forEach((part, i) => {
             if (part._type == 'image') {
-                images.push(imageBuilder.image(part.asset._ref.source))
+                images.push(imageBuilder.image(part.asset._ref))
             }
             images.push('text')
         })
 
         setImageArray(images)
+        setTimeout(() => {
+            console.log(imageArray)
+        }, 1000);
 
     },[])
     // console.log(body[0].children[0].text)
@@ -92,12 +95,12 @@ const Post = ({ title, body, url }) => {
                         //     height={500}
                         // />
                         <>
-                            {/* <Image 
+                            <Image 
                                 // src={part.asset._ref}
-                                src={imageArray[i]}
+                                src={"/image-dc1550489483e3c151852f4f59bba7a5802fc09b-605x907-jpg"}
                                 width={500}
                                 height={500}
-                            /> */}
+                            />
                             <p>Image</p>
                         </>
                         
