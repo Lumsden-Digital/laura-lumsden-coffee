@@ -56,3 +56,21 @@ p {
   background-color: #f8f9fa !important;
   border-radius: 1rem;
 }
+
+.box {
+  margin: 1rem;
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+.box:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 576px) {
+  .box-content {
+    display: flex;
+    justify-content: space-between;
+  }
+}

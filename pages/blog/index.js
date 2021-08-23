@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 // import { useRouter } from 'next/router'
 import { Card, Container } from 'react-bootstrap'
-import styles from '../../styles/Blog.module.css'
 
 const Blogs = ({ posts }) => {
     // const router = useRouter()
@@ -13,6 +12,8 @@ const Blogs = ({ posts }) => {
     const orderedPosts = blogPosts.sort((a,b) => {
         return a.publishedAt - b.publishedAt
     })
+
+    
 
     // console.log(posts)
     // console.log(orderedPosts)
@@ -29,10 +30,10 @@ const Blogs = ({ posts }) => {
                 const postDate = (postDateTime.toDateString())
                 const link = `/blog/${post.slug}`
 
-                return (
-                    <div className={styles.card} key={`${post.title}, ${post.publishedAt}`}>
+                return (                                    
+                    <div className='box' key={`${post.title}, ${post.publishedAt}`}> 
                         <Link href={`/blog/${post.slug.current}`} passHref>
-                            <div className={styles.link}>
+                            <div className='box-content'>
                                 <div>
                                     <h5>{post.title}</h5>
                                 </div>
