@@ -10,6 +10,10 @@ p {
   font-size: 1rem;
 }
 
+a, li {
+  text-decoration: none !important;
+}
+
 .video-container {
   position: relative;
   margin-top: 2rem;

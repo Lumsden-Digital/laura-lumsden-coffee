@@ -4,8 +4,22 @@ import { Container } from 'react-bootstrap'
 import { booksTest}  from '../components/test'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
+import Img from 'next/image'
+import { useNextSanityImage } from 'next-sanity-image'
+import sanityClient from '@sanity/client'
+
+const configuredSanityClient = sanityClient({
+	projectId: '5n04ir7t',
+	dataset: 'production',
+	useCdn: true
+});
 
 const Shop = ({ books }) => {
+
+    const imageProps = useNextSanityImage(
+		configuredSanityClient,
+		books[0][0].image.asset._ref
+	);
 
     const [builtImageArray, setBuiltImageArray] = useState([])
 
@@ -21,7 +35,11 @@ const Shop = ({ books }) => {
         setBuiltImageArray(imageArray)
     },[])
 
-    // console.log(books[0])
+    console.log(books[0][0].description[0].children[0].text)
+
+    const linkStyle = {
+
+    }
 
     // console.log(booksTest[0].title)
 
@@ -36,15 +54,19 @@ const Shop = ({ books }) => {
                 <p>Check out my <a href={authorPage}>Amazon author page</a> for my published work.</p>   
                 {books[0].map((book, i) => (
                     <div className='box' key={`${book.title}`}> 
-                        <Link href={`/blog`} passHref>
+                        {/* <a href={authorPage}> */}
                             <div className='box-content'>
-                                <div>
+                                <div href={authorPage}>
                                     <h5>{book.title}</h5>
                                 </div>
                                 {/* <span>{book.description[0].children[0].text}</span> */}
-                                <img src={builtImageArray[i]} style={{margin: '2.5rem'}}/>
+                                {/* <div style={{maxWidth: '200px', maxHeight: '275px'}}>
+                                    <img src={builtImageArray[i]} style={{margin: '2.5rem'}}/>
+                                </div> */}
+                                {/* <Img {...imageProps} layout="responsive" sizes="(max-width: 800px) 100vw, 800px" /> */}
+                                <p>{book.description[0].children[0].text}</p>
                             </div>
-                        </Link>
+                        {/* </a> */}
                     </div> 
                 ))}         
             </Container>

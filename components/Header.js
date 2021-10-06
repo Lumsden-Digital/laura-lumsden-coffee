@@ -1,15 +1,10 @@
 import React from 'react'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Link from 'next/link'
-import HeaderStyles from '../styles/Header.module.css'
 import LinkItem from './atoms/LinkItem'
 import Brand from './atoms/Brand'
 
 const Header = () => {
-
-    const navbar = {
-        // height: '100px'
-    }
 
     const brand = {
         backgroundColor: '#3e3e3e',
@@ -22,10 +17,6 @@ const Header = () => {
         marginBottom: '.8rem',
         marginTop: '.8rem',
         // paddingTop: '1rem'
-    }
-
-    const navlink = {
-        marginLeft: '1.8rem'
     }
 
     return (
@@ -44,7 +35,6 @@ const Header = () => {
                 </Navbar.Collapse>
             </Navbar>
         </>
-
     )
 }
 
